@@ -1,0 +1,39 @@
+@media (max-width: 575px) {
+    .name-restaurant {
+        font-size: 20px;
+        text-indent: 5px;
+    }
+
+    .logo {
+        width: 30px;
+    }
+
+    .banner .carousel-indicators li {
+        width: 25px;
+        height: 3px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .name-restaurant {
+        font-size: 30px;
+        text-indent: 5px;
+    }
+
+    .logo {
+        width: 40px;
+    }
+
+    .banner .carousel-indicators li {
+        width: 40px;
+        height: 4px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
