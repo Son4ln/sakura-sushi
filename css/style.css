@@ -107,10 +107,14 @@
      text-indent:15px;
      color: #FFF;
  }
+
  .main-nav .nav-link {
      color:white;
  }
 
+ .main-nav .navbar-nav .nav-item {
+     transition: all .2s;
+ }
  .main-nav .navbar-nav .nav-item:hover {
     border: solid 1px #ffa41f;
  }
@@ -129,10 +133,78 @@
 
 /* ==================Food================== */
 .food-menu {
-    background: url('../storage/food-menu/bg-menu.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
+        background: url('../storage/food-menu/bg-menu.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+}
+.food-menu .nav-tabs {
+    border-bottom: 0px;
 }
 
+.food-menu .nav-tabs .nav-item .nav-link{
+    background: unset;
+    border-radius: unset;
+    color: #ffa41f;
+    transition: all .1s;
+    font-size: 20px;
+    font-family: Lobster;
+}
+
+.food-menu .nav-tabs .nav-item .nav-link:hover {
+    color: #fff;
+}
+
+.food-menu .nav-tabs .nav-item .nav-link.active {
+    border: solid 1px #ffa41f;
+    color: #FFF;
+}
+.food-menu .nav-tabs .nav-item:hover .nav-link {
+    border: solid 1px #ffa41f;
+}
+
+.food-boder-r {
+    border-right: solid 3px #ffa41f;
+}
+
+.food-img-hover {
+    overflow: hidden;
+}
+
+.food-img-hover img:hover {
+    transform: scale(1.2);
+    transition: all .5s;
+}
+.font-food-menu {
+    text-align: center;
+    font-size: 13px;
+}
+.font-menu-japan {
+    color: #8b8888
+}
+.font-menu-price {
+    color: #fc0404;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.food-slider .food-slider-nav {
+    width: 60px;
+    height: 60px;
+    background:#ffa41f;
+    top: 50%;
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 3px 3px 5px black;
+}
+
+.food-slider .carousel-control-prev {
+    left: -3%;
+    transform: translateX(0) translateY(-50%);
+}
+
+.food-slider .carousel-control-next {
+    right: -3%;
+    transform: translateX(0) translateY(-50%);
+}
 /* ==================End Food================== */
