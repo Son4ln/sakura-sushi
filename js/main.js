@@ -41,11 +41,11 @@ $(document).ready(function(){
     var maxSlideWidth = 0;
     var itemSlider = $('.km-slider .km-slider-inner .km-item');
     var sliderWidth = '';
-    sliderWidth = $('.km-slider').outerWidth(true);
+    // sliderWidth = $('.km-slider').outerWidth(true);
     var itemWidth = 0;
-    maxSlideWidth = itemWidth * itemSlider.length - sliderWidth;
-    var translateXval = '';
-    var interval = $('.km-slider').attr('data-interval');
+    // maxSlideWidth = itemWidth * itemSlider.length - sliderWidth;
+    var translateXval = 0;
+    // var interval = $('.km-slider').attr('data-interval');
 
     $('.km-left, .km-right').click(function () {
         var condition = $(this).hasClass("km-left");
@@ -60,30 +60,36 @@ $(document).ready(function(){
     ResCarouselSize();
 
     $(window).resize(function () {
+        clickWith = 0;
+        translateXval = 0;
+        $('.km-slider .km-slider-inner').css({'transform': `translateX(-${translateXval}px)`});
         ResCarouselSize();
     });
 
     function ResCarouselSize() {
-        itemSlider.outerWidth(true);
+        console.log($(window).width())
         sliderWidth = $('.km-slider').outerWidth(true);
         itemWidth = itemSlider.outerWidth(true);
         maxSlideWidth = itemWidth * itemSlider.length - sliderWidth;
     }
 
-    var kmSliderInterval = setInterval(function(){ clickAnimate() }, interval);
+    // var kmSliderInterval = setInterval(function(){ clickAnimate() }, interval);
 
     function click(event) {
-        clearInterval(kmSliderInterval);
+        // clearInterval(kmSliderInterval);
         clickAnimate(event);
     }
 
     function clickAnimate(event) {
         if (event === 0) {
             if (clickWith > 0) {
-                console.log(clickWith);
+                console.log(itemWidth);
                 clickWith = parseInt(clickWith) - parseInt(itemWidth);
-                
                 translateXval = parseInt(clickWith);
+
+                if (clickWith < itemWidth) {
+                    translateXval = 0;
+                }
             }
         } else {
             if (clickWith < maxSlideWidth) {
@@ -91,11 +97,30 @@ $(document).ready(function(){
                 translateXval = parseInt(clickWith);
                 if (clickWith > maxSlideWidth) {
                     translateXval = maxSlideWidth;
-                    clearInterval(kmSliderInterval);
+                    // clearInterval(kmSliderInterval);
                 }
             }
         }
 
         $('.km-slider .km-slider-inner').css({'transform': `translateX(-${translateXval}px)`});
     }
+
+    $('.book-picker').datepicker({
+        gotoCurrent: true,
+        dateFormat: "dd/mm/yy"
+    });
+
+    $('.book-picker').datepicker( "setDate", new Date());
+
+    $('.book-time').timepicker({
+        timeFormat: 'h:mm p',
+        interval: 60,
+        minTime: '8',
+        maxTime: '11:00pm',
+        defaultTime: '11',
+        startTime: '8:00',
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true
+    });
   });
